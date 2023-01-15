@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="icon" type="image/png" href="assets/icone.png"/>
+    <link rel="stylesheet" href="gif.css">
+    <title>Recherche de Gifs</title>
+  
+</head>
+<body>
+
+<h1>Recherche Gifs</h1>
+
+<form id="search-form">
+    <input type="text" id="search-query" placeholder="Chercher des GIFs...">
+    <input type="button" value="Recherche" onclick="searchGiphy()">
+</form>
+
+<div id="search-results"></div>
+
+<footer>© Created By Nait-Akli Sami | All Rights Reserved <div class="giphy"> Powered by Giphy <img src="assets/logo.png" alt="logo" width="15px" height="15px"></div> </footer>
+
+<script>
+    function searchGiphy() {
+        // Get the search query from the form
+        var searchQuery = document.getElementById("search-query").value;
+
+        // Replace YOUR_API_KEY with your actual API key
+        var apiKey = 'zdi24p1mDMfiV7GNLoLQm7EZzQXZCn2H';
+
+        // Send a GET request to the Giphy API
+        var url = 'https://api.giphy.com/v1/gifs/search?api_key=' + apiKey + '&q=' + encodeURIComponent(searchQuery);
+
+        var xhr = new XMLHttpRequest();
+        xhr.open('GET', url);
+        xhr.onreadystatechange = function() {
+            if (xhr.readyState === 4 && xhr.status === 200) {
+                var data = JSON.parse(xhr.responseText);
+
+                // Check if there are any results
+                if (data.data.length > 0) {
+                    // Loop through the data and display the GIFs
+                    var searchResults = document.getElementById("search-results");
+                    searchResults.innerHTML = '';
+                    for (var i = 0; i < data.data.length; i++) {
+                        var gif = data.data[i];
+                        var img = document.createElement("img");
+                        img.src = gif.images.original.url;
+                        img.alt = gif.title;
+                        searchResults.appendChild(img);
+                    }
+                } else {
+                    document.getElementById("search-results").innerHTML = "No results found.";
+                }
+            }
+        };
+        xhr.send();
+    }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,80 @@
+@font-face{
+      
+    font-family:"BlestiveScript_PERSONAL_USE_ONLY";
+    src: url('BlestiveScript_PERSONAL_USE_ONLY.otf');
+  
+
+} 
+
+body{
+
+  background-color: #000000;
+}
+
+h1{
+
+color: white;
+text-align: center;
+font-size: calc(3rem + 2vw);
+font-family: BlestiveScript_PERSONAL_USE_ONLY;
+margin-bottom: 2%;
+}
+  
+     #search-form {
+          display: flex;
+          justify-content: center;
+          margin-bottom: 10%;
+      }
+
+      #search-query {
+          padding: 10px;
+          font-size: 16px;
+          border-radius: 10px;
+          border: 2px solid #ccc;
+          margin-right: 10px;
+      }
+
+      #search-form input[type="button"] {
+          padding: 10px 20px;
+          background-color: #4CAF50;
+          color: white;
+          border: none;
+          border-radius: 10px;
+          cursor: pointer;
+      }
+      
+      #search-results {
+          display: flex;
+          flex-wrap: wrap;
+          align-items: center;
+          justify-content: center;
+      }
+
+      #search-results img {
+          width: 300px;
+          height: 300px;
+          object-fit: contain;
+          margin: 10px;
+      }
+
+      footer {
+          background-color: #000000;
+          color:white;
+          font-weight: bold;
+          text-align: center;
+          padding: 10px;
+          position: fixed;
+          bottom: 0;
+          width: 100%;
+
+          
+      }
+      .giphy {
+
+          margin-top: 0.5%;
+      }
+
+    
+
+
+      *, html, body { margin: 0px; padding: 0px; }
